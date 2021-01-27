@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		#main {
+			width: 500px;
+			color: rgb(51, 50, 48);
+		}
+
+		.block {
+			background-color: rgb(192, 184, 236);
+			padding: 10px;
+			border: 1px solid #ee4b0a;
+		}
+
+		#content {
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.record {
+			border: 1px solid #99ff7a;
+			border-radius: 5px;
+			display: flex;
+		}
+
+		.record p {
+			margin: 5px;
+		}
+
+		/* #images {
+			height: 100px;
+			width: 100px;
+		} */
+	</style>
+</head>
+<body>
+	<div id="main" class="block">
+		<div id="top" class="block">Шапка</div>
+		<div id="content">
+			<div id="left" class="block">
+				<p>Записи Записи  Записи Записи Записи Записи Записи</p>
+				<div id="records">
+
+				</div>
+			</div>
+			<div id="center" class="block">
+				<p>Сайдбар Сайдбар Сайдбар Сайдбар Сайдбар</p>
+			</div>
+		</div>
+		<div id="bottom" class="block">Футер</div>
+	</div>
+
+	<script>
+		const mas1 = [
+			{text: 'Это первая запись', image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/beach-quotes-1559667853.jpg'},
+			{text: 'Это вторая запись', image: 'https://www.greeka.com/photos/cyclades/beaches/hero/cyclades-beaches-1280.jpg'},
+			{text: 'Это третья запись', image: 'https://images.photowall.com/products/62178/sunset-beach-2.jpg?h=699&q=85'}
+		];
+		// ${}
+		//console.log('Элемент 0 ' + mas1[0].text + ' ' + mas1[0].image);
+		//console.log('Элемент 1 ' + mas1[1].text + ' ' + mas1[1].image);
+		//console.log('Элемент 2 ' + mas1[2].text + ' ' + mas1[2].image);
+
+		function test (arr) {
+			for (let i = 0; i < arr.length; i++) {
+				console.log('Элемент ' + i + ' ' + arr[i].text + ' ' + arr[i].image);
+			}
+		};
+		test(mas1);
+
+        let result = '';
+
+
+
+	// result = `<div class="record">
+	// 			<p><img src="first.png" alt=""></p>
+	// 			<p>text1</p>
+	// 		  </div>
+	// 			<div class="record">
+	// 			<p><img src="second.png" alt=""></p>
+	// 			<p>text2</p>
+	// 		  </div>
+	// 		  <div class="record">
+	// 			<p><img src="third.png" alt=""></p>
+	// 			<p>text3</p>
+	// 		  </div>
+	// 		`;
+
+	function makeFn (arr) {
+		for (let i = 0; i < arr.length; i++) {
+			result += `
+					<div class="record">
+						<p ><img src="${arr[i].image}" width="100px" height="100px" alt=""></p>
+						<p>${arr[i].text}</p>
+					  </div>
+			`;
+		};
+	};
+	makeFn(mas1);
+
+		document.getElementById("records").innerHTML = result;
+
+	</script>
+</body>
+</html>
